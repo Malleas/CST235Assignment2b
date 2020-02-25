@@ -2,12 +2,18 @@ package beans;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
+import javax.validation.constraints.Size;
+
+import com.sun.istack.internal.NotNull;
 
 @Named("user")
 @ApplicationScoped
 public class User {
-
+@NotNull
+@Size(min=5, max=15)
 	private String firstName;
+@NotNull
+@Size(min=5, max=15)
 	private String lastName;
 	
 	public User() {

@@ -8,11 +8,17 @@
 <title>JSF Form Page</title>
 </h:head> 
 <body> 
-<h:form>
-<h:inputText id="firstName" size="30" value="#{user.firstName}" required="true" /><br/>
-<h:inputText id="lastName" size="30" value="#{user.lastName}" required="true"/><br/>
-<h:commandButton value="submit" action="#{formController.onSubmit(user)}"/>
-<h:commandButton value="Flash" action="#{formController.onFlash(user)}"/>
-</h:form>
+<ui:composition template="/layouts/commonLayout.xhtml">
+	<ui:define name="content">
+		<h:form>
+		<h:inputText id="firstName" size="30" value="#{user.firstName}" required="true" /><br/>
+		<h:inputText id="lastName" size="30" value="#{user.lastName}" required="true"/><br/>
+		<h:commandButton value="submit" action="#{formController.onSubmit(user)}"/>
+		<h:commandButton value="Flash" action="#{formController.onFlash(user)}"/>
+		<h:messages />
+		</h:form>
+	</ui:define>
+
+</ui:composition>
 </body> 
 </html>
