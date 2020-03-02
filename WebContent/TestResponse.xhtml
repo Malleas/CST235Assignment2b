@@ -12,7 +12,7 @@
 <ui:composition template="/layouts/commonLayout.xhtml">
 	<ui:define name="content">
 		<h4> Hello #{user.firstName}.  Your Orders are:</h4>
-		<h:dataTable value="#{orders.orders}" var="o"
+		<h:dataTable value="#{formController.service.orders}" var="o"
 		styleClass="order-table"
 		headerClass="order-table-header"
 		rowClasses="order-table-odd-row, order-table-even-row"

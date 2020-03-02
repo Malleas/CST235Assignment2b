@@ -1,19 +1,28 @@
 package controllers;
 import java.io.IOException;
 
+import javax.ejb.EJB;
 import javax.faces.bean.*;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
+import javax.inject.Inject;
 
 import beans.User;
+import business.MyTimerService;
+import business.OrdersBusinessInterface;
 
 @ManagedBean
 @ViewScoped
 
 public class FormController {
 	
+	@Inject OrdersBusinessInterface ordersBusinessInterface;
+	@EJB MyTimerService timer;
 	
-	public static void onSubmit(User user) throws IOException {
+	
+	public void onSubmit(User user) throws IOException {
+		ordersBusinessInterface.test();
+		timer.setTimer(10000);
 		FacesContext.getCurrentInstance().getExternalContext().redirect("TestResponse.xhtml");
 	}
 	
@@ -25,4 +34,9 @@ public class FormController {
 		return "TestResponse2?faces-redirect=true";
 	}
 
+	public OrdersBusinessInterface getService() {
+		return ordersBusinessInterface;
+	}
+
+	
 }
