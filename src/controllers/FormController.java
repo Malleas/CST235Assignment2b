@@ -88,7 +88,6 @@ public class FormController {
 		String password = "password1";
 		Connection conn = null;
 		Statement stmt = null;
-		ResultSet rs = null;
 		
 		try {
 			conn = DriverManager.getConnection(url, userName, password);
