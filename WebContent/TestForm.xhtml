@@ -15,6 +15,7 @@
 		<h:inputText id="lastName" size="30" value="#{user.lastName}" required="true"/><br/>
 		<h:commandButton value="submit" action="#{formController.onSubmit(user)}"/>
 		<h:commandButton value="Flash" action="#{formController.onFlash(user)}"/>
+		<h:commandButton action="#{formController.onSendOrder()}" value="Send Order" />
 		<h:messages />
 		</h:form>
 	</ui:define>

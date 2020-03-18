@@ -1,13 +1,13 @@
 package beans;
 
-import javax.enterprise.context.ApplicationScoped;
+import javax.faces.bean.SessionScoped;
 import javax.inject.Named;
 import javax.validation.constraints.Size;
 
 import com.sun.istack.internal.NotNull;
 
 @Named("user")
-@ApplicationScoped
+@SessionScoped
 public class User {
 @NotNull
 @Size(min=5, max=15)
