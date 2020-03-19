@@ -9,6 +9,7 @@ import java.sql.Statement;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 import javax.jms.ObjectMessage;
+import javax.ws.rs.core.Response;
 
 import beans.Order;
 
@@ -20,7 +21,7 @@ public class OrdersDataService {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void addOrder(Order order) throws Exception {
+	public Response addOrder(Order order) throws Exception {
 		Class.forName("org.postgresql.Driver");
 		String url = "jdbc:postgresql://localhost:5432/postgres";
 		String userName = "postgres";
@@ -28,6 +29,7 @@ public class OrdersDataService {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		System.out.println("This is the message: " +  order);
+		String message = null;
 		
 		try {
 			conn = DriverManager.getConnection(url, userName, password);
@@ -40,16 +42,29 @@ public class OrdersDataService {
 			ps.setInt(4, order.getQuantity());
 			ps.executeUpdate();
 			ps.close();
-			System.out.println("Order added...");
+			message = "Order added...";
 			
 		}catch(Exception e) {
 			System.out.println("Failure: " + e);
 			e.printStackTrace();
+			message = "Order not added, there was an error...";
 		}finally {
 			if(conn != null) {
 				conn.close();
 			}
 		}
+		if(message.equals("Order added...")) {
+			return Response
+					.status(Response.Status.OK)
+					.entity(message)
+					.build();
+		}else {
+			return Response
+					.status(Response.Status.INTERNAL_SERVER_ERROR)
+					.entity(message)
+					.build();
+		}
+		
 		
 	}
 

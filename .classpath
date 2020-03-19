@@ -14,5 +14,7 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="/Users/ntqams30/Dropbox/GCU Work/CST-235/JAR files/resteasy-jaxb-provider.jar"/>
+	<classpathentry kind="lib" path="/Users/ntqams30/Dropbox/GCU Work/CST-235/JAR files/json-simple-1.1.jar" sourcepath="/Users/ntqams30/.m2/repository/com/googlecode/json-simple/json-simple/1.1/json-simple-1.1-sources.jar"/>
+	<classpathentry kind="lib" path="/Users/ntqams30/Dropbox/GCU Work/CST-235/JAR files/gson-2.2.2.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
