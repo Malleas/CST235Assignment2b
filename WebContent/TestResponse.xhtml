@@ -11,7 +11,7 @@
 <body> 
 <ui:composition template="/layouts/commonLayout.xhtml">
 	<ui:define name="content">
-		<h4> Hello #{user.firstName}.  Your Orders are:</h4>
+		<h4> Hello #{user.firstName}.</h4>
 		<h:dataTable value="#{formController.service.orders}" var="o"
 		styleClass="order-table"
 		headerClass="order-table-header"
@@ -42,6 +42,7 @@
 		</h:dataTable>
 		<h:button value="Back" outcome="TestForm.xhtml"/>
 		<h:commandButton value="Submit Order" action="#{formController.testButton()}"/>
+		<h:commandButton action="#{formController.onLogOff()}" value="Log Out" />
 	</ui:define>
 </ui:composition>
 

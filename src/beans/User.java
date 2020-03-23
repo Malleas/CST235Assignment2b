@@ -1,6 +1,10 @@
 package beans;
 
+import java.security.Principal;
+
+import javax.annotation.PostConstruct;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.validation.constraints.Size;
 
@@ -15,6 +19,26 @@ public class User {
 @NotNull
 @Size(min=5, max=15)
 	private String lastName;
+
+
+
+	@PostConstruct
+	public void init() {
+		Principal principal= FacesContext.getCurrentInstance().getExternalContext().getUserPrincipal();
+		if(principal == null)
+		{
+			setFirstName("Unknown");
+			setLastName("");
+		}
+		else
+		{
+			setFirstName(principal.getName());
+			setLastName("");
+		}	
+	}
+	
+	
+
 	
 	public User() {
 		// TODO Auto-generated constructor stub

@@ -39,16 +39,20 @@ public class FormController {
 		return "OrderResponse.xhtml";
 	}
 
-
-
-	public void onSubmit(User user) throws Exception {
-		ordersBusinessInterface.test();
-		// Ítimer.setTimer(10000);
-		getAllOrders();
-		insertOrder();
-		getAllOrders();
-		FacesContext.getCurrentInstance().getExternalContext().redirect("TestResponse.xhtml");
+	public String onLogOff() {
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		return "TestResponse.xhtml?faces-redirect=true";
 	}
+
+
+//	public void onSubmit(User user) throws Exception {
+//		ordersBusinessInterface.test();
+//		// Ítimer.setTimer(10000);
+//		getAllOrders();
+//		insertOrder();
+//		getAllOrders();
+//		FacesContext.getCurrentInstance().getExternalContext().redirect("TestResponse.xhtml");
+//	}
 
 	public String onFlash(User user) throws IOException {
 		Flash flash = FacesContext.getCurrentInstance().getExternalContext().getFlash();
