@@ -6,15 +6,12 @@
 
 <h:head></h:head> 
 <body> 
-
 <div align="center"> 
-	<form  method="post" action="j_security_check">
-		Username: <h:inputText id="j_username" autocomplete="off" /><br/>
-		Password: <h:inputSecret id="j_password" autocomplete="off" /><br/>
-		<h:commandButton type="submit" value="Submit" />
-	</form>
+	<p>Please enter a user name or password that is authorized to access this
+        application. For this application, this means a user that has been
+        created in the <code>file</code> realm and has been assigned to the
+    <em>group</em> of <code>GcuUser</code>.</p>
+    <p><a href="TestResponse.xhtml">Return to Login</a></p>		
 </div>
-
-
 </body> 
 </html>
